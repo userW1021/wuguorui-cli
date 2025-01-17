@@ -1,16 +1,26 @@
 {
-  "name": "auto-cli",
-  "version": "1.0.0",
+  "name":"Wgr-cli",
+  "version": "0.0.1",
   "main": "index.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rollup -c rollup.config.js --bundleCongigAsCjw"
   },
-  "keywords": [],
+  "keywords": [
+    "Vite","Vue3","TypeScript","Element-plus"
+  ],
   "author": "",
   "license": "ISC",
-  "description": "",
+  "bin":{
+    "Wgr":"bin/index.js"
+  },
+  "files":[
+    "dist",
+    "bin",
+    "README.md"
+  ],
+  "description": "W-脚手架",
   "devDependencies": {
     "@inquirer/prompts": "^7.2.3",
     "@rollup/plugin-commonjs": "^25.0.3",
