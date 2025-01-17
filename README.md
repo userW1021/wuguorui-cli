@@ -10,7 +10,7 @@
 ##  安装
 
 ```bash
-npm install wgr-cli -g
+npm install wgr-cli-tool -g
 ```
 ## 使用
 
