@@ -1,7 +1,13 @@
 import {input,select} from "@inquirer/prompts"
 import { clone } from "../utils/clone"
 import path from "path"
+import {gt} from "lodash"
+import chalk from "chalk"
 import fs from "fs-extra"
+import axios, { AxiosResponse } from "axios"
+import {name,version} from "../../package.json"
+import { log } from "console"
+
 export interface TemplateInfo{
     name:string, // 模板名称
     downloadUrl :string, // 模板下载地址
@@ -39,6 +45,37 @@ export function isOverwrite(fileName:string){
 }
 
 
+export const getNpmInfo = async(npmName:string)=>{
+    const npmUrl =`https://registry.npmjs.org/${npmName}`;
+    let res = {}
+    try{
+        res = await axios.get(npmUrl)
+        
+    }catch(error){
+        console.log(error)
+    }
+    return res
+}
+
+
+export const getNpmLatesVersion = async(name:string)=>{
+    const {data} = (await getNpmInfo(name)) as AxiosResponse
+    console.log("info",data)
+    return data["dist-tags"].latest
+}
+
+
+export const checkVersion=async(name:string,version:string)=>{
+    const latestVersion = await getNpmLatesVersion(name);
+   const need = gt(latestVersion,version) 
+    if(need){
+        console.warn(`检测到wgr最新版本:${chalk.green(latestVersion)},当前版本是:${chalk.green(version)}`)
+        console.log(`可使用:${chalk.yellow('npm install wgr-cli-tool@latest')},或者使用:${chalk.yellow('wgr update')}更新`)
+    }
+    return need
+}
+
+
 export async function create(projectName?:string){
     //初始化模板
     const templateList = Array.from(templates).map((item:[string,TemplateInfo])=>{
@@ -63,6 +100,9 @@ export async function create(projectName?:string){
             return //不覆盖直接结束
         }
     }
+
+    //检查版本更新
+    await checkVersion(name,version)
 
 
     const templateName = await select({
