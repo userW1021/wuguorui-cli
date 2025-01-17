@@ -13,15 +13,15 @@ export const templates: Map<string,TemplateInfo> = new Map(
     [
         ["Vite-Vue3-Typescript-template",{
             name: 'Vite-Vue3-Typescript-template',
-            downloadUrl:"https://gitee.com/zhao-shuoning/zhao-shuonings-app.git",
+            downloadUrl:"https://gitee.com/wu-guo-rui/w-scaffold-testing.git",
             description:"Vue3技术栈开发模板",
-            branch:"develop"
+            branch:"master"
         }],
         ["Vite-template",{
             name: 'Vite-Vue3-Typescript-template',
-            downloadUrl:"https://gitee.com/zhao-shuoning/zhao-shuonings-app.git",
+            downloadUrl:"https://gitee.com/wu-guo-rui/w-scaffold-testing.git",
             description:"Vue3技术栈开发模板",
-            branch:"develop"
+            branch:"master"
         }]
     ]
 )
