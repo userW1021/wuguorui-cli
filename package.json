@@ -1,6 +1,6 @@
 {
-  "name":"wgr-cli-tool",
-  "version": "0.0.1",
+  "name": "wgr-cli-tool",
+  "version": "0.0.2",
   "main": "index.js",
   "type": "module",
   "scripts": {
@@ -8,14 +8,17 @@
     "build": "rollup -c rollup.config.js --bundleCongigAsCjw"
   },
   "keywords": [
-    "Vite","Vue3","TypeScript","Element-plus"
+    "Vite",
+    "Vue3",
+    "TypeScript",
+    "Element-plus"
   ],
   "author": "",
   "license": "ISC",
-  "bin":{
-    "Wgr":"bin/index.js"
+  "bin": {
+    "Wgr": "bin/index.js"
   },
-  "files":[
+  "files": [
     "dist",
     "bin",
     "README.md"
