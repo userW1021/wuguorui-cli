@@ -2,10 +2,9 @@
   "name": "wgr-cli-tool",
   "version": "0.0.6",
   "main": "index.js",
-  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rollup -c rollup.config.js --bundleCongigAsCjw"
+    "build": "rollup -c rollup.config.js --bundleConfigAsCjs"
   },
   "keywords": [
     "Vite",
